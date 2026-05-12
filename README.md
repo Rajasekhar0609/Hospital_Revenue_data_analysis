@@ -99,3 +99,19 @@ DIVIDE(
     [Total Admissions],
     0
 )
+
+
+Mortality Rate =
+DIVIDE(
+    [Mortality Count],
+    [Total Admissions],
+    0
+)
+
+Bed Occupancy % =
+DIVIDE(
+    SUM(admissions_raw[length_of_stay]),
+    SUM(hospitals[bed_capacity]) *
+    DISTINCTCOUNT(date_table[Date]),
+    0
+)
